@@ -1,0 +1,86 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  background-color: #f8f9fa;
+}
+
+/* Sidebar Layout */
+#wrapper {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  width: 250px;
+  transition: margin 0.25s ease-out;
+}
+
+.bg-dark {
+  background-color: #1e293b !important;
+}
+
+#sidebar-wrapper .list-group-item {
+  border: none;
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+  opacity: 0.8;
+  transition: 0.2s;
+}
+
+#sidebar-wrapper .list-group-item:hover,
+#sidebar-wrapper .list-group-item.active {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-left: 4px solid #0d6efd;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Card Styling */
+.card {
+  border-radius: 12px;
+}
+
+.icon-box {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+/* Responsive Sidebar Toggle */
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -250px;
+  }
+}
+
+@media (max-width: 767.98px) {
+  #sidebar-wrapper {
+    margin-left: -250px;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SIMPEL SEKOLAH - Dashboard Admin</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-dark text-white" id="sidebar-wrapper">
+      <div class="sidebar-heading text-center py-4 fs-4 fw-bold border-bottom border-secondary">
+        <i class="fas fa-graduation-cap me-2 text-primary"></i>SIMPEL
+      </div>
+      <div class="list-group list-group-flush my-3">
+        <a href="#" class="list-group-item list-group-item-action bg-transparent text-white active">
+          <i class="fas fa-home me-3"></i>Dashboard
+        </a>
+        <a href="pages/siswa.html" class="list-group-item list-group-item-action bg-transparent text-white">
+          <i class="fas fa-user-graduate me-3"></i>Data Siswa
+        </a>
+        <a href="pages/guru.html" class="list-group-item list-group-item-action bg-transparent text-white">
+          <i class="fas fa-chalkboard-teacher me-3"></i>Data Guru
+        </a>
+        <a href="pages/kelas.html" class="list-group-item list-group-item-action bg-transparent text-white">
+          <i class="fas fa-school me-3"></i>Data Kelas
+        </a>
+        <a href="pages/absensi.html" class="list-group-item list-group-item-action bg-transparent text-white">
+          <i class="fas fa-clipboard-list me-3"></i>Absensi
+        </a>
+        <a href="pages/laporan.html" class="list-group-item list-group-item-action bg-transparent text-white">
+          <i class="fas fa-chart-bar me-3"></i>Laporan
+        </a>
+        <a href="pages/pengaturan.html"
+          class="list-group-item list-group-item-action bg-transparent text-white mt-4 border-top border-secondary pt-3">
+          <i class="fas fa-cog me-3"></i>Pengaturan
+        </a>
+      </div>
+    </div>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper" class="w-100 bg-light">
+      <!-- Top Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 px-4 shadow-sm">
+        <div class="d-flex align-items-center">
+          <i class="fas fa-align-left fs-4 me-3 cursor-pointer" id="menu-toggle"></i>
+          <h5 class="mb-0 fw-bold">Dashboard</h5>
+        </div>
+
+        <div class="ms-auto d-flex align-items-center">
+          <div class="position-relative me-4 cursor-pointer">
+            <i class="fas fa-bell fs-5 text-secondary"></i>
+            <span
+              class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+          </div>
+          <div class="dropdown">
+            <a class="text-decoration-none text-dark dropdown-toggle d-flex align-items-center" href="#" role="button"
+              data-bs-toggle="dropdown">
+              <img src="https://ui-avatars.com/api/?name=Admin+Sekolah&background=0D8ABC&color=fff" alt="Admin"
+                class="rounded-circle me-2" width="35">
+              <span class="fw-medium">Admin TU</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Profil</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item text-danger" href="#">Keluar</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <div class="container-fluid px-4 py-4">
+        <div class="row mb-4">
+          <div class="col-12">
+            <h4 class="fw-bold">Selamat datang kembali, Admin 👋</h4>
+            <p class="text-muted">Berikut adalah ringkasan sistem administrasi hari ini.</p>
+          </div>
+        </div>
+
+        <!-- 4 Cards -->
+        <div class="row g-4 mb-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h6 class="text-muted mb-0">Total Siswa</h6>
+                  <div class="icon-box bg-primary-subtle text-primary rounded p-2">
+                    <i class="fas fa-user-graduate"></i>
+                  </div>
+                </div>
+                <h3 class="fw-bold mb-0" id="totalSiswa">0</h3>
+                <small class="text-muted">Total siswa terdaftar</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h6 class="text-muted mb-0">Total Guru</h6>
+                  <div class="icon-box bg-success-subtle text-success rounded p-2">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                  </div>
+                </div>
+                <h3 class="fw-bold mb-0" id="totalGuru">0</h3>
+                <small class="text-muted">Total tenaga pendidik</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h6 class="text-muted mb-0">Total Kelas</h6>
+                  <div class="icon-box bg-warning-subtle text-warning rounded p-2">
+                    <i class="fas fa-school"></i>
+                  </div>
+                </div>
+                <h3 class="fw-bold mb-0" id="totalKelas">0</h3>
+                <small class="text-muted">Total kelas aktif</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <h6 class="text-muted mb-0">Kehadiran Hari Ini</h6>
+                  <div class="icon-box bg-info-subtle text-info rounded p-2">
+                    <i class="fas fa-clipboard-check"></i>
+                  </div>
+                </div>
+                <h3 class="fw-bold mb-1">96%</h3>
+                <small class="text-success fw-medium"><i class="fas fa-arrow-up"></i> +2.4% dari kemarin</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart & Activity -->
+        <div class="row g-4 mb-4">
+          <!-- Chart -->
+          <div class="col-lg-8">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h5 class="fw-bold mb-0">Statistik Kehadiran</h5>
+                  <select class="form-select form-select-sm w-auto">
+                    <option>Mingguan</option>
+                    <option>Bulanan</option>
+                  </select>
+                </div>
+                <canvas id="attendanceChart" height="100"></canvas>
+              </div>
+            </div>
+          </div>
+
+          <!-- Recent Activity -->
+          <div class="col-lg-4">
+            <div class="card border-0 shadow-sm h-100">
+              <div class="card-body p-4">
+                <h5 class="fw-bold mb-4">Aktivitas Terbaru</h5>
+                <div class="activity-feed">
+                  <div class="d-flex mb-3 align-items-start">
+                    <div class="bg-success rounded-circle p-2 text-white me-3 mt-1" style="font-size: 0.7rem;"><i
+                        class="fas fa-plus"></i></div>
+                    <div>
+                      <p class="mb-0 fw-medium">Data siswa baru ditambahkan</p>
+                      <p class="text-muted small mb-0">Ahmad Fauzan — VII-A</p>
+                      <small class="text-muted" style="font-size: 0.75rem;">10 menit yang lalu</small>
+                    </div>
+                  </div>
+                  <div class="d-flex mb-3 align-items-start">
+                    <div class="bg-primary rounded-circle p-2 text-white me-3 mt-1" style="font-size: 0.7rem;"><i
+                        class="fas fa-check"></i></div>
+                    <div>
+                      <p class="mb-0 fw-medium">Absensi diperbarui</p>
+                      <p class="text-muted small mb-0">Kelas VIII-B</p>
+                      <small class="text-muted" style="font-size: 0.75rem;">25 menit yang lalu</small>
+                    </div>
+                  </div>
+                  <div class="d-flex mb-3 align-items-start">
+                    <div class="bg-warning rounded-circle p-2 text-white me-3 mt-1" style="font-size: 0.7rem;"><i
+                        class="fas fa-edit"></i></div>
+                    <div>
+                      <p class="mb-0 fw-medium">Data guru diperbarui</p>
+                      <p class="text-muted small mb-0">Siti Rahma, S.Pd.</p>
+                      <small class="text-muted" style="font-size: 0.75rem;">1 jam yang lalu</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Today's Attendance Detail -->
+        <div class="row">
+          <div class="col-12">
+            <div class="card border-0 shadow-sm">
+              <div class="card-body p-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <h5 class="fw-bold mb-0">Ringkasan Kehadiran Hari Ini</h5>
+                  <button class="btn btn-outline-primary btn-sm">Lihat Detail Absensi &rarr;</button>
+                </div>
+                <div class="table-responsive">
+                  <table class="table table-borderless align-middle">
+                    <thead class="bg-light rounded">
+                      <tr>
+                        <th class="py-3 text-secondary">Status</th>
+                        <th class="py-3 text-secondary text-end">Jumlah</th>
+                        <th class="py-3 text-secondary text-center">Persentase</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="border-bottom">
+                        <td><span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill"><i
+                              class="fas fa-check-circle me-1"></i> Hadir</span></td>
+                        <td class="text-end fw-bold">411</td>
+                        <td class="text-center">96%</td>
+                      </tr>
+                      <tr class="border-bottom">
+                        <td><span class="badge bg-info-subtle text-info px-3 py-2 rounded-pill"><i
+                              class="fas fa-info-circle me-1"></i> Izin</span></td>
+                        <td class="text-end fw-bold">7</td>
+                        <td class="text-center">1.6%</td>
+                      </tr>
+                      <tr class="border-bottom">
+                        <td><span class="badge bg-warning-subtle text-warning px-3 py-2 rounded-pill"><i
+                              class="fas fa-notes-medical me-1"></i> Sakit</span></td>
+                        <td class="text-end fw-bold">6</td>
+                        <td class="text-center">1.4%</td>
+                      </tr>
+                      <tr>
+                        <td><span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill"><i
+                              class="fas fa-times-circle me-1"></i> Alpa</span></td>
+                        <td class="text-end fw-bold">4</td>
+                        <td class="text-center">1%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. Bootstrap Dulu -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- 2. Chart JS Kedua -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- 3. Supabase KETIGA (Harus sebelum dashboard.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- 4. Dashboard Anda TERAKHIR -->
+  <script src="js/dashboard.js"></script>
+</body>
+
+</html>
